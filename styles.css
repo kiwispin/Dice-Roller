@@ -1,57 +1,83 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     background-color: #f4f4f4;
 }
 
-.app-container {
-    background: white;
+.container {
+    text-align: center;
+    background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 400px;
-}
-
-.input-group {
-    margin-bottom: 15px;
 }
 
 .dice-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .die {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    border: 1px solid black;
-    border-radius: 8px;
-    align-content: space-between;
-    padding: 5px;
-    box-sizing: border-box;
+    font-size: 1.5em; /* Added this to handle dice with values above 6 */
 }
 
 .dot {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
     background-color: black;
+    border-radius: 50%;
     position: absolute;
 }
 
-.top-left { top: 5px; left: 5px; }
-.top-right { top: 5px; right: 5px; }
-.bottom-left { bottom: 5px; left: 5px; }
-.bottom-right { bottom: 5px; right: 5px; }
-.center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.center-left { top: 50%; left: 5px; transform: translateY(-50%); }
-.center-right { top: 50%; right: 5px; transform: translateY(-50%); }
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.center-left {
+    left: 10px;
+}
+
+.center-right {
+    right: 10px;
+}
+
+.center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+input, button {
+    margin-top: 10px;
+}
+
