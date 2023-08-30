@@ -1,55 +1,38 @@
-console.log("Script loaded.");
-
 function rollDice() {
     console.log("rollDice function called.");
+    let diceContainer = document.getElementById("diceContainer");
+    console.log("diceContainer acquired:", diceContainer.style.display);
 
-    const diceCount = parseInt(document.getElementById('diceCount').value) || 1;
-    const sideCount = parseInt(document.getElementById('sideCount').value) || 6;
-    const customValues = (document.getElementById('customValues').value).split(',').map(Number).filter(Boolean);
+    // Get user input
+    const numDice = parseInt(document.getElementById("numDice").value) || 1;
+    const faces = parseInt(document.getElementById("faces").value) || 6;
+    const customValues = document.getElementById("customValues").value.split(",").map(Number);
 
-    const diceContainer = document.getElementById('diceContainer');
-    console.log("diceContainer acquired:", diceContainer);
+    let diceValues = [];
 
-    diceContainer.innerHTML = '';  // Clear previous dice
-
-    for (let i = 0; i < diceCount; i++) {
+    for (let i = 0; i < numDice; i++) {
         let diceValue;
-
-        if (customValues.length) {
+        if (customValues.length > 1) {
             diceValue = customValues[Math.floor(Math.random() * customValues.length)];
         } else {
-            diceValue = Math.floor(Math.random() * sideCount) + 1;
+            diceValue = Math.floor(Math.random() * faces) + 1;
         }
-        console.log("Dice values:", diceValue);
-
-        const dieElem = document.createElement('div');
-        dieElem.classList.add('die');
-        diceContainer.appendChild(dieElem);
-
-        displayDiceValue(dieElem, diceValue);
+        diceValues.push(diceValue);
     }
+
+    console.log("Dice values:", ...diceValues);
+
+    displayDiceValue(diceValues);
 }
 
-function displayDiceValue(dieElem, diceValue) {
-    const positions = [
-        [],
-        ['center'],
-        ['top-left', 'bottom-right'],
-        ['top-left', 'center', 'bottom-right'],
-        ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
-        ['top-left', 'top-right', 'center', 'bottom-left', 'bottom-right'],
-        ['top-left', 'top-right', 'center-left', 'center-right', 'bottom-left', 'bottom-right']
-    ];
+function displayDiceValue(values) {
+    const diceContainer = document.getElementById("diceContainer");
+    diceContainer.innerHTML = "";  // Clear previous dice
 
-    if (diceValue <= 6) {
-        positions[diceValue].forEach(pos => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot', pos);
-            dieElem.appendChild(dot);
-            console.log("Dot added with positions:", pos);
-        });
-    } else {
-        // For values above 6, just display the number
-        dieElem.textContent = diceValue;
-    }
+    values.forEach(value => {
+        const dieDiv = document.createElement("div");
+        dieDiv.classList.add("die");
+        dieDiv.innerText = value;  // Here we set the number
+        diceContainer.appendChild(dieDiv);
+    });
 }
