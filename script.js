@@ -1,9 +1,15 @@
+console.log("Script loaded.");
+
 function rollDice() {
+    console.log("rollDice function called.");
+
     const diceCount = parseInt(document.getElementById('diceCount').value) || 1;
     const sideCount = parseInt(document.getElementById('sideCount').value) || 6;
     const customValues = (document.getElementById('customValues').value).split(',').map(Number).filter(Boolean);
 
     const diceContainer = document.getElementById('diceContainer');
+    console.log("diceContainer acquired:", diceContainer);
+
     diceContainer.innerHTML = '';  // Clear previous dice
 
     for (let i = 0; i < diceCount; i++) {
@@ -14,6 +20,7 @@ function rollDice() {
         } else {
             diceValue = Math.floor(Math.random() * sideCount) + 1;
         }
+        console.log("Dice values:", diceValue);
 
         const dieElem = document.createElement('div');
         dieElem.classList.add('die');
