@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
-        <div class="optional">
-            <label for="diceCount">Number of Dice (Optional):</label>
-            <input type="number" id="diceCount" value="1" min="1" max="6">
+        <div class="settings">
+            <div class="optional">
+                <label for="diceCount">Number of Dice (Optional):</label>
+                <input type="number" id="diceCount" value="1" min="1" max="6">
+            </div>
+            <div class="optional">
+                <label for="sideCount">Number of Sides (Optional):</label>
+                <input type="number" id="sideCount" value="6" min="2" max="6">
+            </div>
+            <div class="optional">
+                <label for="customValues">Custom Values (comma-separated, Optional):</label>
+                <input type="text" id="customValues" placeholder="e.g., 2,3,4,5,6,7">
+            </div>
+            <button onclick="rollDice()">Roll Dice</button>
         </div>
-        <div class="optional">
-            <label for="sideCount">Number of Sides (Optional):</label>
-            <input type="number" id="sideCount" value="6" min="2" max="6">
-        </div>
-        <div class="optional">
-            <label for="customValues">Custom Values (comma-separated, Optional):</label>
-            <input type="text" id="customValues" placeholder="e.g., 2,3,4,5,6,7">
-        </div>
-        <button onclick="rollDice()">Roll Dice</button>
-        
         <div class="dice-container" id="diceContainer">
             <!-- Dice elements will be appended here -->
         </div>
@@ -29,4 +32,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

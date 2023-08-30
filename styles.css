@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f3f3f3;
+    margin: 0;
 }
 
 .container {
@@ -12,9 +13,13 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
 }
 
 button {
+    display: block;
+    margin-top: 20px;
     padding: 10px 15px;
     font-size: 16px;
     border: none;
@@ -22,58 +27,30 @@ button {
     color: #ffffff;
     cursor: pointer;
     border-radius: 4px;
-    margin-top: 10px;
+    width: 100%;
+}
+
+.settings > div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .dice-container {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
-}
-
-.die {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    position: relative;
-    border: 1px solid #000;
-    border-radius: 8px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: black;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.shaking {
-    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) 3 both;
-}
-
-@keyframes shake {
-    10%, 90% {
-        transform: translate3d(-1px, 0, 0);
-    }
-    20%, 80% {
-        transform: translate3d(2px, 0, 0);
-    }
-    30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
-    }
-    40%, 60% {
-        transform: translate3d(4px, 0, 0);
-    }
-}
-
-.optional {
-    font-style: italic;
-    opacity: 0.7;
-}
-
-div {
-    margin-bottom: 10px;
 }

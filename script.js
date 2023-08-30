@@ -1,36 +1,26 @@
 function rollDice() {
+    const diceCount = parseInt(document.getElementById('diceCount').value) || 1;
+    const sideCount = parseInt(document.getElementById('sideCount').value) || 6;
+    const customValues = (document.getElementById('customValues').value).split(',').map(Number).filter(Boolean);
+
     const diceContainer = document.getElementById('diceContainer');
-    diceContainer.innerHTML = ''; // Clear previous dice
-
-    const diceCount = parseInt(document.getElementById('diceCount').value);
-    const sideCount = parseInt(document.getElementById('sideCount').value);
-    let customValuesInput = document.getElementById('customValues').value.split(',').map(num => parseInt(num.trim()));
-
-    // If customValuesInput is empty or doesn't match the side count, generate default values
-    if (customValuesInput.length !== sideCount || !customValuesInput.every(Number.isInteger)) {
-        customValuesInput = Array.from({ length: sideCount }, (_, i) => i + 1);
-    }
+    diceContainer.innerHTML = '';  // Clear previous dice
 
     for (let i = 0; i < diceCount; i++) {
+        let diceValue;
+
+        if (customValues.length) {
+            diceValue = customValues[Math.floor(Math.random() * customValues.length)];
+        } else {
+            diceValue = Math.floor(Math.random() * sideCount) + 1;
+        }
+
         const dieElem = document.createElement('div');
         dieElem.classList.add('die');
-        dieElem.setAttribute('id', `die${i}`);
         diceContainer.appendChild(dieElem);
+
+        displayDiceValue(dieElem, diceValue);
     }
-
-    const diceElems = document.querySelectorAll('.die');
-    diceElems.forEach(dieElem => dieElem.classList.add('shaking'));
-
-    setTimeout(() => {
-        diceElems.forEach(dieElem => {
-            dieElem.classList.remove('shaking');
-
-            const randomValue = Math.floor(Math.random() * sideCount);
-            const diceValue = customValuesInput[randomValue];
-
-            displayDiceValue(dieElem, diceValue);
-        });
-    }, 1500); // 0.5s * 3 iterations of shaking animation
 }
 
 function displayDiceValue(dieElem, diceValue) {
