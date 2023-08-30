@@ -45,5 +45,6 @@ function displayDiceValue(dieElem, diceValue) {
         const dot = document.createElement('div');
         dot.classList.add('dot', pos);
         dieElem.appendChild(dot);
+        console.log("Dot added with positions:", pos);
     });
 }

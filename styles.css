@@ -4,53 +4,54 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f3f3f3;
-    margin: 0;
+    background-color: #f4f4f4;
 }
 
-.container {
-    background: #ffffff;
+.app-container {
+    background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 80%;
-    max-width: 500px;
+    max-width: 400px;
 }
 
-button {
-    display: block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    background-color: #007BFF;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
-}
-
-.settings > div {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-input[type="number"],
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.input-group {
+    margin-bottom: 15px;
 }
 
 .dice-container {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
 }
+
+.die {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 8px;
+    align-content: space-between;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+}
+
+.top-left { top: 5px; left: 5px; }
+.top-right { top: 5px; right: 5px; }
+.bottom-left { bottom: 5px; left: 5px; }
+.bottom-right { bottom: 5px; right: 5px; }
+.center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.center-left { top: 50%; left: 5px; transform: translateY(-50%); }
+.center-right { top: 50%; right: 5px; transform: translateY(-50%); }
