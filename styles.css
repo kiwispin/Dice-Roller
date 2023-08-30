@@ -14,12 +14,21 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .dice-container {
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    justify-content: center; 
 }
 
 .die {
@@ -33,7 +42,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    font-size: 1.5em; /* Added this to handle dice with values above 6 */
+    font-size: 1.5em;
 }
 
 .dot {
@@ -77,7 +86,31 @@ body {
     right: 10px;
 }
 
-input, button {
+label {
+    display: block;
     margin-top: 10px;
+    font-weight: bold;
 }
 
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
