@@ -41,10 +41,15 @@ function displayDiceValue(dieElem, diceValue) {
         ['top-left', 'top-right', 'center-left', 'center-right', 'bottom-left', 'bottom-right']
     ];
 
-    positions[diceValue].forEach(pos => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot', pos);
-        dieElem.appendChild(dot);
-        console.log("Dot added with positions:", pos);
-    });
+    if (diceValue <= 6) {
+        positions[diceValue].forEach(pos => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot', pos);
+            dieElem.appendChild(dot);
+            console.log("Dot added with positions:", pos);
+        });
+    } else {
+        // For values above 6, just display the number
+        dieElem.textContent = diceValue;
+    }
 }
