@@ -22,8 +22,9 @@ h1 {
     margin-bottom: 20px;
 }
 
-.input-group {
-    margin-bottom: 20px;
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
 }
 
 .top-inputs {
@@ -67,6 +68,7 @@ button:hover {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .die {
