@@ -1,74 +1,102 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #F7F7F7;
+    margin: 0;
 }
 
 .container {
-    background: #FFFFFF;
-    padding: 2rem;
-    border-radius: 8px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 80%;
     max-width: 400px;
+    width: 90%;
+}
+
+h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .input-group {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
+    justify-content: space-between;
 }
 
 input {
-    padding: 0.5rem;
-    border: 1px solid #DDD;
-    border-radius: 4px;
-    flex-basis: calc(33% - 10px);
-    box-sizing: border-box;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 button {
-    background-color: #6200EE;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #6200ea;
     color: white;
     border: none;
-    padding: 0.75rem 1rem;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 button:hover {
-    background-color: #4B0082;
+    background-color: #3700b3;
 }
 
 .dice-container {
-    margin-top: 1.5rem;
     display: flex;
-    justify-content: center;
+    gap: 15px;
     flex-wrap: wrap;
-    gap: 1rem;
-    transition: opacity 0.5s, transform 0.5s;
-    transform: translateY(20px);
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .die {
-    width: 60px;
-    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFF;
-    border: 2px solid #6200EE;
-    border-radius: 10px;
-    font-size: 24px;
+    width: 80px;
+    height: 80px;
+    background-color: #6200ea;
+    color: white;
     font-weight: bold;
-    color: #6200EE;
+    font-size: 30px;
+    border-radius: 5px;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both, fadeIn 0.5s linear both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
