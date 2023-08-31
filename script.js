@@ -1,23 +1,33 @@
 function rollDice() {
-    const numDice = parseInt(document.getElementById("numDice").value) || 1;
-    const faces = parseInt(document.getElementById("faces").value) || 6;
-    const customValues = document.getElementById("customValues").value.split(",").map(Number);
+    console.log("rollDice function called.");
+    const diceContainer = document.getElementById('diceContainer');
+    console.log("diceContainer acquired:", diceContainer);
 
-    const diceContainer = document.getElementById("diceContainer");
-    diceContainer.innerHTML = ''; // Clear previous dice
+    diceContainer.innerHTML = '';  // Clear previous dice
 
-    for (let i = 0; i < numDice; i++) {
-        const dieDiv = document.createElement('div');
+    const numDice = document.getElementById('numDice').value || 1;
+    const faces = document.getElementById('faces').value || 6;
+    const customValues = (document.getElementById('customValues').value || "").split(',').map(Number);
+
+    let diceValues = roll(numDice, faces, customValues);
+    console.log("Dice values:", ...diceValues);
+    
+    diceValues.forEach(value => {
+        let dieDiv = document.createElement('div');
         dieDiv.className = 'die';
-
-        let value;
-        if (customValues.length > 1) {
-            value = customValues[Math.floor(Math.random() * customValues.length)];
-        } else {
-            value = Math.floor(Math.random() * faces) + 1;
-        }
-
         dieDiv.innerText = value;
         diceContainer.appendChild(dieDiv);
+    });
+}
+
+function roll(numDice, faces, customValues) {
+    let results = [];
+    for (let i = 0; i < numDice; i++) {
+        if (customValues && customValues.length > 0) {
+            results.push(customValues[Math.floor(Math.random() * customValues.length)]);
+        } else {
+            results.push(Math.floor(Math.random() * faces) + 1);
+        }
     }
+    return results;
 }
