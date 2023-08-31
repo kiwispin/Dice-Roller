@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <title>Custom Dice Roller</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="title">Custom Dice Roller</h1>
-
-        <label class="label" for="numDice">Number of Dice (default is 1):</label>
-        <input type="number" id="numDice" min="1" placeholder="1">
-
-        <label class="label" for="faces">Number of Faces (default is 6):</label>
-        <input type="number" id="faces" min="1" placeholder="6">
-
-        <label class="label" for="customValues">Custom Values (comma separated, optional):</label>
-        <input type="text" id="customValues" placeholder="e.g. 2,3,5,7,11">
-
+    <div class="app">
+        <h1>Dice Roller</h1>
+        <div class="controls">
+            <input type="number" id="numDice" placeholder="No. of Dice (Default 1)">
+            <input type="number" id="faces" placeholder="No. of Faces (Default 6)">
+            <input type="text" id="customValues" placeholder="Custom Values (e.g., 1,2,3)">
+        </div>
         <button onclick="rollDice()">Roll Dice</button>
-
-        <div class="dice-container" id="diceContainer"></div>
+        <div id="diceContainer" class="dice-container"></div>
     </div>
-
     <script src="script.js"></script>
 </body>
+
 </html>
