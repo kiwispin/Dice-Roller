@@ -4,9 +4,11 @@ function rollDice() {
     diceContainer.innerHTML = '';  // Clear previous dice
     diceContainer.style.opacity = '0';  // Reset the opacity for fade-in effect
 
-    const numDice = document.getElementById('numDice').value || 1;
-    const faces = document.getElementById('faces').value || 6;
-    const customValues = (document.getElementById('customValues').value || "").split(',').map(Number);
+    let numDice = parseInt(document.getElementById('numDice').value) || 1;
+    let faces = parseInt(document.getElementById('faces').value) || 6;
+
+    const customValuesInput = document.getElementById('customValues').value;
+    const customValues = customValuesInput ? customValuesInput.split(',').map(Number) : [];
 
     let diceValues = roll(numDice, faces, customValues);
     
