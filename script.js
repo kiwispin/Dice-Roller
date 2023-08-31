@@ -1,30 +1,33 @@
-function rollDice() {
-    console.log("rollDice function called.");
-    const numDice = document.getElementById("numDice").value || 1;
-    const faces = document.getElementById("faces").value || 6;
-    const customValues = document.getElementById("customValues").value.split(",");
-    
+document.addEventListener("DOMContentLoaded", function() {
+    // This function gets executed once the DOM is loaded
     const diceContainer = document.getElementById("diceContainer");
-    console.log("diceContainer acquired:", diceContainer);
 
-    diceContainer.innerHTML = '';
+    function createDie(value) {
+        const die = document.createElement("div");
+        die.classList.add("die");
+        die.innerText = value;
+        diceContainer.appendChild(die);
+    }
 
-    const results = [];
-    for (let i = 0; i < numDice; i++) {
-        if (customValues && customValues.length > 0 && !isNaN(customValues[0])) {
-            const randomIndex = Math.floor(Math.random() * customValues.length);
-            results.push(customValues[randomIndex]);
-        } else {
-            results.push(Math.floor(Math.random() * faces) + 1);
+    function rollDice() {
+        console.log("rollDice function called.");
+
+        const numDice = parseInt(document.getElementById('numDice').value) || 1;
+        const faces = parseInt(document.getElementById('faces').value) || 6;
+        const customValues = document.getElementById('customValues').value.split(',').map(v => v.trim());
+
+        diceContainer.innerHTML = ''; // Clear previous dice
+
+        for (let i = 0; i < numDice; i++) {
+            let value;
+            if (customValues && customValues.length > 1) {
+                value = customValues[Math.floor(Math.random() * customValues.length)];
+            } else {
+                value = Math.floor(Math.random() * faces) + 1;
+            }
+            createDie(value);
         }
     }
 
-    console.log("Dice values:", ...results);
-
-    results.forEach(val => {
-        const diceDiv = document.createElement("div");
-        diceDiv.className = "die";
-        diceDiv.textContent = val;
-        diceContainer.appendChild(diceDiv);
-    });
-}
+    window.rollDice = rollDice; // Expose the rollDice function to the window object
+});
