@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <title>Dice Roller</title>
 </head>
@@ -11,9 +11,14 @@
     <div class="container">
         <h1>Dice Roller</h1>
         <div class="input-group">
-            <input type="number" id="numDice" placeholder="No. of Dice (Default 1)">
-            <input type="number" id="faces" placeholder="No. of Faces (Default 6)">
-            <input type="text" id="customValues" placeholder="Custom Values (e.g., 1,2,3)">
+            <label for="numDice">No. of Dice</label>
+            <input type="number" id="numDice" placeholder="Default 1">
+
+            <label for="faces">No. of Faces</label>
+            <input type="number" id="faces" placeholder="Default 6">
+
+            <label for="customValues">Custom Values</label>
+            <input type="text" id="customValues" placeholder="e.g., 1,2,3">
         </div>
         <button onclick="rollDice()">Roll Dice</button>
         <div class="dice-container" id="diceContainer"></div>
