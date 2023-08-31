@@ -1,7 +1,5 @@
 function rollDice() {
-    console.log("rollDice function called.");
     let diceContainer = document.getElementById("diceContainer");
-    console.log("diceContainer acquired:", diceContainer.style.display);
 
     const numDice = parseInt(document.getElementById("numDice").value) || 1;
     const faces = parseInt(document.getElementById("faces").value) || 6;
@@ -19,7 +17,6 @@ function rollDice() {
         diceValues.push(diceValue);
     }
 
-    console.log("Dice values:", ...diceValues);
     displayDiceValue(diceValues);
 }
 
@@ -30,7 +27,7 @@ function displayDiceValue(values) {
     values.forEach(value => {
         const dieDiv = document.createElement("div");
         dieDiv.classList.add("die");
-        dieDiv.innerText = value;  // Displaying the number
+        dieDiv.innerText = value.toString();
         diceContainer.appendChild(dieDiv);
     });
 }
