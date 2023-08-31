@@ -52,6 +52,7 @@ button {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     transition: background-color 0.2s;
+    margin-bottom: 20px;  /* Add space between button and dice */
 }
 
 button:hover {
@@ -63,6 +64,9 @@ button:hover {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 0;  /* Start with the dice container being transparent */
+    transform: translateY(20px);  /* Move the dice container a bit down */
+    transition: opacity 0.4s, transform 0.4s;  /* Add transition for fade-in effect */
 }
 
 .die {
@@ -76,4 +80,19 @@ button:hover {
     color: white;
     font-size: 24px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: shake 0.4s;  /* Add shake animation to dice */
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-2px, 0px) rotate(1deg); }
+    30% { transform: translate(1px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-1px, 1px) rotate(0deg); }
+    70% { transform: translate(1px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
