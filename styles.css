@@ -45,7 +45,6 @@ body {
     font-size: 1.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    line-height: 60px;  // This centers the number vertically
 }
 
 .label {
@@ -53,7 +52,7 @@ body {
     font-weight: 500;
 }
 
-input[type="number"], select {
+input[type="number"], input[type="text"], select {
     width: 100%;
     padding: 10px 15px;
     margin-top: 5px;
