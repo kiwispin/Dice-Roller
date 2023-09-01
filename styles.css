@@ -2,8 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
-    height: 100%;
-    position: relative;  /* Relative positioning for fallback centering method */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -14,19 +16,11 @@ body {
     width: 80%;
     max-width: 500px;
     box-sizing: border-box;
-    position: absolute;  /* Fallback centering method */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);  /* Fallback centering method */
-    display: flex;
-    flex-direction: column;  /* Ensures content is stacked vertically */
-    align-items: center;  /* Horizontally center the content */
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    width: 100%;
 }
 
 .input-group label {
@@ -39,7 +33,6 @@ h1 {
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 10px;
-    width: 100%;
 }
 
 input {
@@ -65,7 +58,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
-    margin-top: 15px;  /* Spacing from the inputs above */
+    margin-top: 15px; 
 }
 
 button:hover {
@@ -78,7 +71,6 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
-    width: 100%;
 }
 
 .die {
