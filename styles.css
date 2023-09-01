@@ -2,10 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
 }
 
 .container {
@@ -16,6 +13,19 @@ body {
     width: 80%;
     max-width: 500px;
     box-sizing: border-box;
+    margin-top: 5%; /* Default margin for mobile */
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin-top: 10%; /* Adjust margin for larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        margin-top: 15%; /* Adjust margin for even larger screens */
+    }
 }
 
 h1 {
@@ -58,7 +68,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
-    margin-top: 15px; 
+    margin-top: 10px;
 }
 
 button:hover {
@@ -67,7 +77,7 @@ button:hover {
 
 .dice-container {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
