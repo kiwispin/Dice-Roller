@@ -2,13 +2,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // This function gets executed once the DOM is loaded
     const diceContainer = document.getElementById("diceContainer");
 
-    function createDie(value) {
+    function createDie(value, faces) {
         const die = document.createElement("div");
         die.classList.add("die");
         die.innerText = value;
+    
+        if(faces === 6) {
+            die.classList.add("six-sided");
+        } else if(faces === 8) {
+            die.classList.add("eight-sided");
+        }
+    
         diceContainer.appendChild(die);
     }
-
+    
     function rollDice() {
         console.log("rollDice function called.");
 
@@ -25,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 value = Math.floor(Math.random() * faces) + 1;
             }
-            createDie(value);
+            createDie(value, faces);
         }
     }
 
